@@ -1,0 +1,6 @@
+the mysite contains the virtual enviorment. source mysite/bin/activate should
+work.i created a app inside homepage that will say hellow world in localhost:8000
+
+
+
+i also used sublime text if to view the files and edit them if that matters

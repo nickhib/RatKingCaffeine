@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+   <h1>{{ title }} {{ msg }}</h1>
+      {% csrf_token %}
+      <div class="product-filters">
+  <ul class="mobile-product-filters vertical menu show-for-small-only" data-accordion-menu>
+   <li>
+     <a href="#"><h2>Products</h2></a>   
+     <ul class="vertical menu" data-accordion-menu>
+      <li class="product-filters-tab">
+        <a href="#">equipment</a>
+        <ul class="categories-menu menu vertical nested is-active">
+           <a href="#" class="clear-all" id="category-clear-all">Clear All</a> 
+           <li><input class="category-clear-selection" id="category-checkbox1" type="checkbox"><label for="category-checkbox1">Category 1</label></li>
+           <li><input class="category-clear-selection" id="category-checkbox2" type="checkbox"><label for="category-checkbox2">Category 2</label></li>
+           <li><input class="category-clear-selection" id="category-checkbox3" type="checkbox"><label for="category-checkbox3">Category 3</label></li>
+         </ul>
+     </li>
+     </ul>
+   </li>
+ </ul>
+ <h1 class="product-filters-header hide-for-small-only">Filter</h1>
+ <ul class="vertical menu hide-for-small-only" data-accordion-menu>
+    <li class="product-filters-tab">
+      <a href="#">Equipment</a>
+      <ul class="categories-menu menu vertical nested is-active">
+         <a href="#" class="clear-all" id="category-clear-all">Clear All</a> 
+         <li><input id="category-checkbox1" type="checkbox"><label for="category-checkbox1">Coffee Makers</label></li>
+         <li><input id="category-checkbox2" type="checkbox"><label for="category-checkbox2">Cups</label></li>
+         <li><input id="category-checkbox3" type="checkbox"><label for="category-checkbox3">Other</label></li>
+      </ul>
+   </li>
+  </ul>  
+</div>
+      
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+   <h1>{{ title }} {{ msg }}</h1>
+
+   <ul>
+      {% if request.user.is_authenticated %}
+      <li>{{ cur_user.userinformation.First_name }}</li>
+      <li>{{ cur_user.userinformation.Last_name }}</li>
+      <li>{{ cur_user.userinformation.phone_number }}</li>
+      <li>{{ cur_user.userinformation.u.username }}</li>
+      {% endif %}
+    </ul>
+
+
+    <p>Welcome {{ current_user.username }}. To our fantastic site!</p>
+      {% if prev_page >= 0 %}
+      <a href="/{{ prev_page }}">prev</a>
+      {% endif %}
+      <a href="/{{ next_page }}">next</a>
+      <a href="/comments"> make a comment</a>
+      <a href="/customer_service">Customer Service</a>
+      <a href="/home">Home</a>
+      <a href="/coffee">Coffee</a>
+      <a href="/login">Login</a>
+      
+
+      <div class="grid-x grid-padding-x">
+        <div class="medium-6 medium-offset-3 cell">
+          <h2 class= "font">commenttext</h2>
+          <ul>
+            {% for commenttext in comment_list %}
+                <li class = "font">{{ commenttext }}</li>
+                {% endfor %}
+
+            </ul>
+        </div>
+      </div>
+      {% verbatim %}
+      <div id = "vue-examples">
+        
+          <button @click="count++" class = "font">
+          count is: {{ count }}
+          </button>
+      </div>
+      {% endverbatim %}
+      <h3 class = "font"> pages:
+        {% for elem in page_list %}
+        {{ elem }}
+        {% endfor %}
+        
+      </h1>
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="{% static 'js/myvue.js' %}"> </script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/foundation.css' %}">
+<img src="{% static 'images/flower.jpeg' %}" alt="my image">
+{% endblock %}

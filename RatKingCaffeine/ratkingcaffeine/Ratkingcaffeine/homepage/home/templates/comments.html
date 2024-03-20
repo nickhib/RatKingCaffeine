@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+   <h1>{{ title }} {{ msg }}</h1>
+    <a href="/"> Home</a>
+    <h2 class= "font">Comment Text Below</h2>
+    <form action="/comments/" method="post">
+      {% csrf_token %}
+      {{ c_form }}
+      <input type="submit" value="submit">
+
+    </form>
+          <ul>
+            {% for commenttext in comment_list %}
+                <li class = "font">{{ commenttext }}</li>
+                {% endfor %}
+
+            </ul>
+      
+      
+{% endblock %}

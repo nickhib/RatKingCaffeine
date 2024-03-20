@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+   <h1>{{ title }} {{ msg }}</h1>
+      {% csrf_token %}
+      {{ c_form }}
+    </form>
+      
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+	<div style ="text-align: center">
+		<div style ="border: 2px solid powderblue">
+	<h1>{{ title }} {{ msg }}</h1>
+	<ul>
+      		{% if request.user.is_authenticated %}
+		 <p>Username: {{ cur_user.userinformation.u.username }}</p>
+                 <p>First Name: {{ cur_user.userinformation.First_name }}</p>
+	         <p>Last Name: {{ cur_user.userinformation.Last_name }}</p>
+	         <p>Phone Number{{ cur_user.userinformation.phone_number }}</p>
+		 <p>Address:{{ cur_user.userinformation.address }}</p>
+		 <p>City:{{ cur_user.userinformation.city }}</p>
+		 <p>Zipcode:{{ cur_user.userinformation.zipcode }}</p>
+
+
+
+		{% endif %}
+	</ul>
+		</div>
+	</div>
+	<a href="/profile_edit"> profile_edit</a>
+      
+	<a href="/profile_edit"> profile_edit</a>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+   <h1>{{ title }} {{ msg }}</h1>
+      {% csrf_token %}
+
+      
+       <div class="product-filters">
+  <ul class="mobile-product-filters vertical menu show-for-small-only" data-accordion-menu>
+   <li>
+     <a href="#"><h2>Products</h2></a>   
+     <ul class="vertical menu" data-accordion-menu>
+      <li class="product-filters-tab">
+        <a href="#">Roasts</a>
+        <ul class="categories-menu menu vertical nested is-active">
+           <a href="#" class="clear-all" id="category-clear-all">Clear All</a> 
+           <li><input class="category-clear-selection" id="category-checkbox1" type="checkbox"><label for="category-checkbox1">Category 1</label></li>
+           <li><input class="category-clear-selection" id="category-checkbox2" type="checkbox"><label for="category-checkbox2">Category 2</label></li>
+           <li><input class="category-clear-selection" id="category-checkbox3" type="checkbox"><label for="category-checkbox3">Category 3</label></li>
+         </ul>
+     </li>
+     <li class="product-filters-tab">
+        <a href="#">Texture</a>
+        <ul class="categories-menu menu vertical nested is-active">
+          <a href="#" class="clear-all" id="size-clear-all">Clear All</a>  
+          <li><input id="size-checkbox1" type="checkbox"><label for="size-checkbox1">Ground</label></li>
+          <li><input id="size-checkbox2" type="checkbox"><label for="size-checkbox2">Bean</label></li>
+          <li><input id="size-checkbox3" type="checkbox"><label for="size-checkbox3">instant</label></li>
+        </ul>
+      </li>
+     </ul>
+   </li>
+ </ul>
+ <h1 class="product-filters-header hide-for-small-only">Filter</h1>
+ <ul class="vertical menu hide-for-small-only" data-accordion-menu>
+    <li class="product-filters-tab">
+      <a href="#">Roasts</a>
+      <ul class="categories-menu menu vertical nested is-active">
+         <a href="#" class="clear-all" id="category-clear-all">Clear All</a> 
+         <li><input id="category-checkbox1" type="checkbox"><label for="category-checkbox1">Dark Roast</label></li>
+         <li><input id="category-checkbox2" type="checkbox"><label for="category-checkbox2">medium roast</label></li>
+         <li><input id="category-checkbox3" type="checkbox"><label for="category-checkbox3">Light Roast</label></li>
+      </ul>
+   </li>
+   <li class="product-filters-tab">
+      <a href="#">Texture</a>
+      <ul class="categories-menu menu vertical nested is-active">
+        <a href="#" class="clear-all" id="size-clear-all">Clear All</a>  
+        <li><input id="size-checkbox1" type="checkbox"><label for="size-checkbox1">Ground</label></li>
+        <li><input id="size-checkbox2" type="checkbox"><label for="size-checkbox2">Bean</label></li>
+        <li><input id="size-checkbox3" type="checkbox"><label for="size-checkbox3">instant</label></li>
+      </ul>
+   </li>
+  </ul>  
+</div>
+<ul>
+            {% for productname in product_list %}
+                <li class = "font">{{ productname }}</li>
+                {% endfor %}
+
+            </ul>
+
+
+
+     
+{% endblock %}
